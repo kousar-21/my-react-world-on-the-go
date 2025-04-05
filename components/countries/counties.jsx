@@ -1,33 +1,44 @@
 
 
 // normal funtion
-function Countries(){
-    return(
-        <div>
+// function Countries(){
+//     return(
+//         <div>
+//         </div>
+//     )
+// }
 
-        </div>
-    )
-}
+import { use } from "react";
+import Country from "../Countrys/Country";
 
 
 // Arrow function
-const Countrias = () =>{
-    return(
-        <div>
+// const Countrias = () =>{
+//     return(
+//         <div>
 
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
 // shortcurt with rsc
-import React from 'react';
 
-const counties = () => {
+
+
+const Counties = ({countriesPromise}) => {
+
+    const countrius = use(countriesPromise);
+    console.log(countrius)
+
     return (
         <div>
-            
+            <h1>Traveiling to the World....: {countrius.length} Country</h1>
+            {
+                countrius.map(country => <Country country={country}></Country>)
+            }
         </div>
     );
 };
 
-export default counties;
+export default Counties;
+
