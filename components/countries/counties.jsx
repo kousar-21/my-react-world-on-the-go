@@ -10,6 +10,7 @@
 
 import { use } from "react";
 import Country from "../Countrys/Country";
+import './counties.css'
 
 
 // Arrow function
@@ -26,16 +27,18 @@ import Country from "../Countrys/Country";
 
 
 const Counties = ({countriesPromise}) => {
-
+    
     const countrius = use(countriesPromise);
-    console.log(countrius)
+    // console.log(countrius)
 
     return (
         <div>
             <h1>Traveiling to the World....: {countrius.length} Country</h1>
+            <div className="counties">
             {
                 countrius.map(country => <Country key={country.cca3} country={country}></Country>)
             }
+            </div>
         </div>
     );
 };
