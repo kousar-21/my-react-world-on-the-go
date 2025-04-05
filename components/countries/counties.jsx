@@ -34,7 +34,7 @@ const Counties = ({countriesPromise}) => {
         <div>
             <h1>Traveiling to the World....: {countrius.length} Country</h1>
             {
-                countrius.map(country => <Country country={country}></Country>)
+                countrius.map(country => <Country key={country.cca3} country={country}></Country>)
             }
         </div>
     );
