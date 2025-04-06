@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './country.css'
 
-const Country = ({country}) => {
+const Country = ({country, handleVisitedCountries}) => {
 
     // console.log(country)
+    // console.log(handleVisitedCountries)
     // console.log(country.flags)
 
     const [visited, setVisited] = useState(false)
@@ -21,6 +22,9 @@ const Country = ({country}) => {
 
         // simple way for toggle
         setVisited(!visited)
+
+        // function er vitor onno function call kora
+        handleVisitedCountries(country);
         
     }
     return (
@@ -31,7 +35,9 @@ const Country = ({country}) => {
             <p>This Country {country.independent ? "is Free and Independent" : "is not Free"}</p>
             <p>Total Population: {country.population}</p>
 
-            <button className={visited ? "btn-visited" : "Not-visited"} onClick={handleVisited}> {
+            <button 
+            className={visited ? "btn-visited" : "Not-visited"} 
+            onClick={handleVisited}> {
                 visited ? "Visited" : "Not Visited"
                 }</button>
 
