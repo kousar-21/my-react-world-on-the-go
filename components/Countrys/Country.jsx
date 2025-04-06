@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import './country.css'
 
-const Country = ({country, handleVisitedCountries}) => {
+const Country = ({ country, handleVisitedCountries, handleVisitedFlags }) => {
 
     // console.log(country)
     // console.log(handleVisitedCountries)
+    // console.log(handleVisitedFlags)
     // console.log(country.flags)
 
     const [visited, setVisited] = useState(false)
 
-    const handleVisited = () =>{
+    const handleVisited = () => {
         // setVisited(true);
 
         // Toggle kora or double tap er jonno condition er proyog
@@ -25,7 +26,7 @@ const Country = ({country, handleVisitedCountries}) => {
 
         // function er vitor onno function call kora
         handleVisitedCountries(country);
-        
+
     }
     return (
         <div className={`country ${visited && 'country-visited'}`}>
@@ -35,11 +36,14 @@ const Country = ({country, handleVisitedCountries}) => {
             <p>This Country {country.independent ? "is Free and Independent" : "is not Free"}</p>
             <p>Total Population: {country.population}</p>
 
-            <button 
-            className={visited ? "btn-visited" : "Not-visited"} 
-            onClick={handleVisited}> {
-                visited ? "Visited" : "Not Visited"
-                }</button>
+            <button
+                className={visited ? "btn-visited" : "Not-visited"}
+                onClick={handleVisited}> {
+                    visited ? "Visited" : "Not Visited"
+                }
+            </button>
+
+            <button onClick={() => handleVisitedFlags(country?.flags?.png)}>Add visited Flags</button>
 
         </div>
     );
